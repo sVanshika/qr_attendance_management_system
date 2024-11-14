@@ -1,0 +1,28 @@
+.course-list {
+  padding: 20px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 16px; /* Space between grid items */
+}
+
+.course-item {
+  background-color: #f9f9f9; /* Light background for each course block */
+  border: 1px solid #ddd; /* Border around each course block */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Padding inside each block */
+  text-align: center; /* Center align text */
+  transition: background-color 0.3s; /* Transition effect on hover */
+}
+
+.course-item:hover {
+  background-color: #e2e2e2; /* Darker background on hover */
+}
+
+.course-link {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Dark text color */
+  font-weight: bold; /* Bold text */
+}

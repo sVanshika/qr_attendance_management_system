@@ -1,0 +1,130 @@
+/* src/components/SubmissionDetails.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.submission-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  padding: 20px;
+}
+
+.submission-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.submission-header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.submission-list {
+  list-style: none;
+  padding: 0;
+}
+
+.submission-list li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.submission-list strong {
+  color: #007bff;
+}
+
+.response-message {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+/* Error message styles */
+.error-message {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+/* Error container style */
+.error {
+  border: 1px solid #ff4d4d;
+}
+
+/* Hint for incorrect course selection */
+.error-hint {
+  margin-top: 15px;
+  color: #ff4d4d;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .submission-card {
+    padding: 15px;
+  }
+}
+
+.google-signin-btn {
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.google-signin-btn:hover {
+  background-color: #357ae8;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+}
+
+.submission-details-container {
+  padding: 20px;
+}
+
+.submission-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.submission-header {
+  font-size: 1.5em;
+}
+
+.submission-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.submission-list li {
+  margin-bottom: 10px;
+}
+
+.error-hint {
+  font-size: 14px;
+  color: #e74c3c;
+}
+
+.error-message {
+  color: #e74c3c;
+}
+

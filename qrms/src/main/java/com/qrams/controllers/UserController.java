@@ -40,7 +40,7 @@ public class UserController {
             case "professor":
                 logger.info("Role: Professor user");
                 username="Yash";
-                id="P101";
+                id="3";
                 break;
             case "student":
                 logger.info("Role: Student user");

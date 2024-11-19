@@ -38,23 +38,6 @@ const SubmissionDetails = () => {
   // Check if the response message indicates an error
   const isError = responseMessage === 'Attendance not saved as student is not present in the course!';
 
-  // Google Sign-In Handler
-  const handleGoogleSignIn = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    try {
-      const result = await firebase.auth().signInWithPopup(provider);
-      const user = result.user;
-      setUser(user);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  // Check if the user is already signed in
-  if (firebase.auth().currentUser) {
-    setUser(firebase.auth().currentUser);
-  }
-
   return (
     <div className="submission-details-container">
       <div className={`submission-card ${isError ? 'error' : ''}`}> {/* Add error class if it's an error */}
@@ -72,21 +55,7 @@ const SubmissionDetails = () => {
         </ul>
         {isError && <p className="error-hint">It seems you have selected the wrong course for marking attendance.</p>}
         
-        {/* Google Sign-In Button */}
-        {!user ? (
-          <div>
-            <button className="google-signin-btn" onClick={handleGoogleSignIn}>
-              Sign in with Google
-            </button>
-            {error && <p className="error-message">{error}</p>}
-          </div>
-        ) : (
-          <div>
-            <h3>Welcome, {user.displayName}!</h3>
-            <p>Email: {user.email}</p>
-            <button onClick={() => firebase.auth().signOut()}>Sign Out</button>
-          </div>
-        )}
+        
       </div>
     </div>
   );

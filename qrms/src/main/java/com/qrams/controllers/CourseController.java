@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/course")
 public class CourseController {
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
@@ -40,7 +41,9 @@ public class CourseController {
     private ProfessorService professorService;
 
     @PostMapping("/save")
-    public Course save(Course course){
+    public Course save(@RequestBody Course course){
+        logger.info("save course");
+        logger.info(course.toString());
         return courseService.save(course);
     }
 
@@ -92,10 +95,11 @@ public class CourseController {
     public ResponseEntity<String> markAttendance(@PathVariable("courseId") Long courseId,
                                                  @RequestBody List<String> studentEmailAddressList){
         boolean saved = attendanceService.saveAttendanceOnEmail(courseId, studentEmailAddressList);
+        logger.info("Attendance saved: " + saved);
         if(saved){
-            return new ResponseEntity<>("Attendance saved successfully", HttpStatus.OK);
+            return new ResponseEntity<>("True", HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Attendance not saved as student is not present in the course!", HttpStatus.OK);
+            return new ResponseEntity<>("False", HttpStatus.OK);
         }
 
     }
@@ -107,5 +111,7 @@ public class CourseController {
         List<AttendanceResponseDTO> attendanceResponseDTOList = attendanceService.getAttendanceByCourseId(courseId);
         return attendanceResponseDTOList;
     }
+
+
 
 }

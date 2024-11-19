@@ -80,6 +80,16 @@ public class Course {
         this.attendanceSet = attendanceSet;
     }
 
+
+    public Professor getProfessor() {
+        return this.professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+
     @Override
     public String toString() {
         return "Course{" +

@@ -100,9 +100,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: '100vh',
-    backgroundColor: '#f4f4f4'
-  },
+    },
   formContainer: {
     backgroundColor: '#ffffff',
     padding: '2rem',

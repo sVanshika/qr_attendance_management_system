@@ -1,8 +1,9 @@
 package com.qrams.model;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class AttendanceResponseDTO {
-    private Date date;
+    private String date;
     private String studentId; // or any other field you want to include
     private String studentName; // example field
     // Add other fields from Student as needed
@@ -15,19 +16,21 @@ public class AttendanceResponseDTO {
     }
 
     public AttendanceResponseDTO(Date date, String studentId, String studentName, String studentEmail) {
-        this.date = date;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        this.date = date != null ? sdf.format(date) : null;
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentEmail = studentEmail;
     }
 
     // Getters and Setters
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        this.date = date != null ? sdf.format(date) : null;
     }
 
     public String getStudentId() {

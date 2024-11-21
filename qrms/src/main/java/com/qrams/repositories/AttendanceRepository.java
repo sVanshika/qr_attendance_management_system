@@ -6,6 +6,14 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface AttendanceRepository extends CrudRepository<Attendance, Long> {
-    List<Attendance> findByCourseId(Long courseId);
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.qrams.model.CourseStudentKey;
+
+@Repository
+public interface AttendanceRepository extends JpaRepository<Attendance, CourseStudentKey> {
+    @Query("SELECT DISTINCT a FROM Attendance a WHERE a.course.id = :courseId ORDER BY a.id.date DESC")
+    List<Attendance> findByCourseId(@Param("courseId") Long courseId);
 }

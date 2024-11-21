@@ -7,6 +7,8 @@ import com.qrams.model.Student;
 import com.qrams.repositories.AttendanceRepository;
 import com.qrams.repositories.CourseRepository;
 import com.qrams.repositories.StudentRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class AttendanceService {
+
+    private static final Logger logger = LoggerFactory.getLogger(AttendanceService.class);
 
     @Autowired
     private AttendanceRepository attendanceRepository;
@@ -39,9 +43,9 @@ public class AttendanceService {
         List<Student> students = (List<Student>) studentRepository.findAllById(studentIds);
 
         for (Student student : students) {
-            Attendance attendance = new Attendance(course, student);
             LocalDateTime localDateTime = LocalDateTime.now();
-            attendance.setDate(Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant()));
+            Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+            Attendance attendance = new Attendance(course, student, date);
 
             attendanceRepository.save(attendance);
         }
@@ -58,9 +62,9 @@ public class AttendanceService {
             if(course.getStudents().contains(student)){
                 System.out.println("Student in course");
 
-                Attendance attendance = new Attendance(course, student);
                 LocalDateTime localDateTime = LocalDateTime.now();
-                attendance.setDate(Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant()));
+                Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+                Attendance attendance = new Attendance(course, student, date);
 
                 attendanceRepository.save(attendance);
                 return true;
@@ -79,6 +83,9 @@ public class AttendanceService {
 
     public List<AttendanceResponseDTO> getAttendanceByCourseId(Long courseId) {
         List<Attendance> attendanceList = attendanceRepository.findByCourseId(courseId);
+        for (Attendance attendance : attendanceList) {
+            System.out.println(">>"+attendance.getDate());
+        }
 
         Collections.sort(attendanceList, new Comparator<Attendance>() {
             @Override
@@ -87,13 +94,16 @@ public class AttendanceService {
             }
         });
 
-        return attendanceList.stream().map(attendance ->
-                new AttendanceResponseDTO(
-                        attendance.getDate(),
-                        attendance.getStudent().getRollNumber(), // Get student ID
-                        attendance.getStudent().getName(), // Get student name
-                        attendance.getStudent().getEmail()
-                )
-        ).collect(Collectors.toList());
+        return attendanceList.stream()
+            .map(attendance -> {
+                logger.info("Mapping Attendance: " + attendance.getDate());
+                return new AttendanceResponseDTO(
+                    attendance.getDate(),
+                    attendance.getStudent().getRollNumber(),
+                    attendance.getStudent().getName(),
+                    attendance.getStudent().getEmail()
+                );
+            })
+            .collect(Collectors.toList());
     }
 }

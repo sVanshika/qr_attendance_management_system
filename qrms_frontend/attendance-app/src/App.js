@@ -8,6 +8,7 @@ import AdminDashboard from './components/AdminDashboard';
 import ProfessorDashboard from './components/ProfessorDashboard';
 import MarkAttendance from './components/MarkAttendance';
 import MarkAttendanceForm from './components/MarkAttendanceForm';
+import ViewAttendance from './components/ViewAttendance';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/professordashboard" element={<ProfessorDashboard />} />
           <Route path="/professor/markattendance" element={<MarkAttendance />} />
           <Route path="/student/markattendance" element={<MarkAttendanceForm />} />
+          <Route path="/professordashboard/viewAttendance" element={<ViewAttendance />} />
         </Routes>
       </Layout>
     </Router>

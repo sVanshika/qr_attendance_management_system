@@ -108,7 +108,12 @@ public class CourseController {
 
     @GetMapping("/getAttendance/{courseId}")
     public List<AttendanceResponseDTO> getAttendanceByCourseId(@PathVariable Long courseId) {
+        logger.info("getAttendanceByCourseId");
         List<AttendanceResponseDTO> attendanceResponseDTOList = attendanceService.getAttendanceByCourseId(courseId);
+        
+        logger.info("attendanceResponseDTOList: ");
+        attendanceResponseDTOList.forEach(dto -> logger.info(dto.getDate()));
+        
         return attendanceResponseDTOList;
     }
 

@@ -40,7 +40,7 @@ const QRCodeGenerator = () => {
     const courseId = 101; // Example course ID, you can modify this as needed
 
     $.ajax({
-      url: `http://localhost:8080/api/course/getAttendance/${courseId}`,
+      url: `http://172.17.48.231:8080/api/course/getAttendance/${courseId}`,
       type: 'GET',
       success: function(data) {
         // Clear existing data in the table

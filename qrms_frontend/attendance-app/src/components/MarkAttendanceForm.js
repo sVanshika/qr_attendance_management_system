@@ -27,6 +27,23 @@ function MarkAttendanceForm() {
             const decodedData = JSON.parse(atob(hashData));
             setStateData(decodedData);
 
+            const submittedAttendance = localStorage.getItem(`attendance_${decodedData.courseId}`);
+            if (submittedAttendance) {
+                const { email: submittedEmail, timestamp } = JSON.parse(submittedAttendance);
+                if (new Date(timestamp) >= new Date(decodedData.activeFrom) && 
+                    new Date(timestamp) <= new Date(decodedData.activeTill)) {
+                    setEmail(submittedEmail);
+                    setHasSubmitted(true);
+                    setMessage({
+                        text: 'Attendance already marked successfully!',
+                        type: 'success'
+                    });
+                    return;
+                } else {
+                    localStorage.removeItem(`attendance_${decodedData.courseId}`);
+                }
+            }
+
             const checkTimeValidity = () => {
                 const now = new Date().getTime();
                 const start = new Date(decodedData.activeFrom).getTime();
@@ -62,7 +79,7 @@ function MarkAttendanceForm() {
                 type: 'danger'
             });
         }
-    }, [hasSubmitted]);
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -85,6 +102,11 @@ function MarkAttendanceForm() {
             );
 
             if(response.data === "True"){
+                localStorage.setItem(`attendance_${stateData.courseId}`, JSON.stringify({
+                    email,
+                    timestamp: new Date().toISOString()
+                }));
+
                 setMessage({
                     text: 'Attendance marked successfully!',
                     type: 'success'

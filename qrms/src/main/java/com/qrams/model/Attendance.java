@@ -1,12 +1,17 @@
 package com.qrams.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
+@Getter
+@Setter
 public class Attendance {
-
+    
     @EmbeddedId
     CourseStudentKey id;
 
@@ -20,54 +25,24 @@ public class Attendance {
     @JoinColumn(name="course_id")
     Course course;
 
-    private Date date;
-
-//    public Attendance(CourseStudentKey id, Student student, Course course, Date date) {
-//        this.id = id;
-//        this.student = student;
-//        this.course = course;
-//        this.date = date;
-//    }
-    public Attendance(Course course, Student student) {
-        this.id = new CourseStudentKey(course.getId(), student.getId());
+    public Attendance(Course course, Student student, Date date) {
+        this.id = new CourseStudentKey(student.getId(), course.getId(), date);
         this.course = course;
         this.student = student;
     }
 
     public Attendance() {
-
-    }
-
-    public CourseStudentKey getId() {
-        return id;
-    }
-
-    public void setId(CourseStudentKey id) {
-        this.id = id;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
     }
 
     public Date getDate() {
-        return date;
+        return id.getDate();
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        if (this.id == null) {
+            this.id = new CourseStudentKey();
+        }
+        this.id.setDate(date);
     }
 
     @Override
@@ -76,7 +51,8 @@ public class Attendance {
                 "id=" + id +
                 ", student=" + student +
                 ", course=" + course +
-                ", date=" + date +
+                ", date=" + getDate() +
                 '}';
     }
+    
 }

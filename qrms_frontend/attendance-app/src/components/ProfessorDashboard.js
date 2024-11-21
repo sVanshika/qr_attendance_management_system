@@ -16,7 +16,7 @@ function ProfessorDashboard() {
     const [activeTill, setActiveTill] = useState('');
 
     React.useEffect(() => {
-        fetch('http://localhost:8080/api/professor/getCourses', {
+        fetch('http://172.17.48.231:8080/api/professor/getCourses', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,6 +51,15 @@ function ProfessorDashboard() {
         setShowModal(false);
     };
 
+    const handleViewAttendance = (courseId) => {
+        navigate(`/professordashboard/viewAttendance`, {
+            state: { 
+                courseId: courseId,
+                courseName: courses.find(course => course.id === courseId)?.name
+            }
+        });
+    };
+
     return (
         <div>
             <h2 style={{color: '#333', marginBottom: '1rem' }}>Welcome Professor {username}!</h2>
@@ -70,21 +79,27 @@ function ProfessorDashboard() {
                                             id={`dropdown-${course.id}`}
                                             data-bs-toggle="dropdown" 
                                             aria-expanded="false"
+                                            style={{width: '100%'}}
                                         >
                                             Actions
                                         </button>
                                         
-                                        <ul className="dropdown-menu" aria-labelledby={`dropdown-${course.id}`}>
+                                        <ul className="dropdown-menu" aria-labelledby={`dropdown-${course.id}`} style={{width: '100%'}}>
                                             <li>
                                                 <button 
                                                     className="dropdown-item" 
                                                     onClick={() => handleMarkAttendance(course.id)}
+                                                    style={{width: '100%'}}
                                                 >
                                                     Mark Attendance
                                                 </button>
                                             </li>
                                             <li>
-                                                <button className="dropdown-item">
+                                                <button 
+                                                    className="dropdown-item"
+                                                    onClick={() => handleViewAttendance(course.id)}
+                                                    style={{width: '100%'}}
+                                                >
                                                     View Attendance
                                                 </button>
                                             </li>

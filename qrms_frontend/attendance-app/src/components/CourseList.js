@@ -7,7 +7,7 @@ const CourseList = () => {
 
   // Fetch the course data when the component loads
   useEffect(() => {
-    axios.get('http://localhost:8080/api/course/getAll')
+    axios.get('http://172.17.48.231:8080/api/course/getAll')
       .then((response) => {
         setCourses(response.data); // Update state with the fetched data
       })

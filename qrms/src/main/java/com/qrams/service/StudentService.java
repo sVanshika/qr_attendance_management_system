@@ -15,4 +15,5 @@ public interface StudentService {
     public List<Student> getStudentsByIdList(List<Long> idList);
 
     public Student getStudentByEmail(String email);
+    public Student findById(Long id);
 }

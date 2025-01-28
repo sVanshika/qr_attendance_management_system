@@ -14,6 +14,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import com.qrams.model.CourseDTO;
+import com.qrams.model.Attendance;
+import com.qrams.model.AttendanceResponseDTO;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -61,6 +66,39 @@ public class StudentController {
             return ResponseEntity.ok(courseDTOs);
         } catch (Exception e) {
             logger.error("Error getting courses for student ID {}: {}", studentId, e.getMessage());
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @PostMapping("/getAttendance")
+    public ResponseEntity<List<AttendanceResponseDTO>> getStudentAttendance(@RequestBody Map<String, String> request) {
+        Long studentId = Long.parseLong(request.get("studentId"));
+        Long courseId = Long.parseLong(request.get("courseId"));
+        
+        try {
+            logger.info("Getting attendance for student ID: {} in course ID: {}", studentId, courseId);
+            Student student = studentService.findById(studentId);
+            
+            if (student == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            List<Attendance> attendanceList = studentService.getAttendanceForStudentAndCourse(studentId, courseId);
+
+            List<AttendanceResponseDTO> attendanceDTOs = attendanceList.stream()
+                .map(attendance -> new AttendanceResponseDTO(
+                    attendance.getDate(),
+                    String.valueOf(attendance.getStudent().getId()),
+                    attendance.getStudent().getName(),
+                    attendance.getStudent().getEmail()
+                ))
+                .collect(Collectors.toList());
+
+            return ResponseEntity.ok(attendanceDTOs);
+            
+        } catch (Exception e) {
+            logger.error("Error getting attendance for student ID {} in course ID {}: {}", 
+                studentId, courseId, e.getMessage());
             return ResponseEntity.internalServerError().build();
         }
     }

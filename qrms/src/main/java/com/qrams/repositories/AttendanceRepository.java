@@ -16,4 +16,7 @@ import com.qrams.model.CourseStudentKey;
 public interface AttendanceRepository extends JpaRepository<Attendance, CourseStudentKey> {
     @Query("SELECT DISTINCT a FROM Attendance a WHERE a.course.id = :courseId ORDER BY a.id.date DESC")
     List<Attendance> findByCourseId(@Param("courseId") Long courseId);
+
+    @Query("SELECT a FROM Attendance a WHERE a.student.id = :studentId AND a.course.id = :courseId ORDER BY a.id.date DESC")
+    List<Attendance> getAttendanceForStudentAndCourse(@Param("studentId") Long studentId, @Param("courseId") Long courseId);
 }

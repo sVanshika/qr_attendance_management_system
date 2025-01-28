@@ -86,4 +86,15 @@ public class ProfessorService {
         }
         return null;
     }
+
+    public Professor authenticateProfessor(String email, String password) {
+        logger.info("Authenticating professor with email: " + email);
+        Professor professor = professorRepository.findByEmailAndPassword(email, password);
+        if (professor == null) {
+            logger.warn("Authentication failed for email: " + email);
+            return null;
+        }
+        logger.info("Professor authenticated successfully: " + professor.getId());
+        return professor;
+    }
 }

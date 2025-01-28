@@ -1,0 +1,47 @@
+Date : 2024-12-03 15:45:50
+Directory : /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components
+Total : 22 files,  1755 codes, 93 comments, 255 blanks, all 2103 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         15 |      1,427 |         82 |        185 |      1,694 |
+| CSS        |          7 |        328 |         11 |         70 |        409 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                         | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                            |         22 |      1,755 |         93 |        255 |      2,103 |
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                                     | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/AdminDashboard.js        | JavaScript |         13 |          0 |          6 |         19 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/CourseList.css           | CSS        |         24 |          0 |          5 |         29 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/CourseList.js            | JavaScript |         34 |          1 |          5 |         40 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/Footer.css               | CSS        |         30 |          1 |          7 |         38 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/Footer.js                | JavaScript |         16 |          1 |          4 |         21 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/Header.css               | CSS        |         46 |          1 |         10 |         57 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/Header.js                | JavaScript |         36 |          1 |          6 |         43 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/HomePage.js              | JavaScript |         40 |         11 |          9 |         60 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/Layout.js                | JavaScript |         93 |          8 |          8 |        109 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/LoginPage.css            | CSS        |         70 |          3 |         13 |         86 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/LoginPage.js             | JavaScript |        141 |          7 |         17 |        165 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/MarkAttendance.js        | JavaScript |         52 |          6 |         10 |         68 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/MarkAttendanceForm.js    | JavaScript |        159 |          0 |         18 |        177 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/ProfessorDashboard.js    | JavaScript |        146 |          0 |         11 |        157 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/QRCodeGenerator.css      | CSS        |         26 |          0 |          4 |         30 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/QRCodeGenerator.js       | JavaScript |         81 |          6 |         10 |         97 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/StudentDashboard.js      | JavaScript |         81 |          0 |          9 |         90 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/SubmissionDetails.css    | CSS        |        103 |          4 |         24 |        131 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/SubmissionDetails.js     | JavaScript |         46 |          5 |         14 |         65 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/ViewAttendance.css       | CSS        |         29 |          2 |          7 |         38 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/ViewAttendance.js        | JavaScript |        238 |         17 |         27 |        282 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms_frontend/attendance-app/src/components/ViewAttendanceStudent.js | JavaScript |        251 |         19 |         31 |        301 |
+| Total                                                                                                                                        |            |      1,755 |         93 |        255 |      2,103 |
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

@@ -24,9 +24,9 @@ function HomePage() {
 
         {/* Login Buttons */}
         <div style={{ display: 'flex', gap: '1rem' }}>
-          <Link to="/login?role=admin">
+          {/* <Link to="/login?role=admin">
             <button style={buttonStyle}>Log in as Admin</button>
-          </Link>
+          </Link> */}
           <Link to="/login?role=professor">
             <button style={buttonStyle} className="btn btn-primary">Log in as Professor</button>
           </Link>
@@ -35,6 +35,7 @@ function HomePage() {
           </Link>
         </div>
       </div>
+      
 
       {/* Footer
       <footer style={{ backgroundColor: '#004080', color: '#fff', textAlign: 'center', padding: '1rem' }}>

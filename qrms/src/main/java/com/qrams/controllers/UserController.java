@@ -12,11 +12,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.qrams.model.LoginRequestDto;
 
+import com.qrams.model.Professor;
+import com.qrams.service.ProfessorService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import com.qrams.model.Student;
+import com.qrams.service.StudentService;
+
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    @Autowired
+    private ProfessorService professorService;
+
+    @Autowired
+    private StudentService studentService;
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> loginUser(@RequestBody LoginRequestDto loginRequest) {
@@ -39,13 +52,31 @@ public class UserController {
                 break;
             case "professor":
                 logger.info("Role: Professor user");
-                username="Yash";
-                id="3";
+                Professor professor = professorService.authenticateProfessor(email, password);
+                if (professor != null) {
+                    username = professor.getName();
+                    id = professor.getId().toString();
+                }
+                else {
+                    return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                                 .body(Map.of("message", "Invalid email or password. Login failed!"));
+                }    
+                
                 break;
             case "student":
                 logger.info("Role: Student user");
-                username="Vanshika";
-                id="194";
+                logger.info(email);
+                logger.info(password);
+               
+                Student student = studentService.authenticateStudent(email, password);
+                if (student != null) {
+                    username = student.getName();
+                    id = String.valueOf(student.getId());
+                }
+                else {
+                    return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                                 .body(Map.of("message", "Invalid email or password. Login failed!"));
+                }    
                 break;
             default:
                 logger.warn("Unknown role: {}", role);

@@ -33,7 +33,7 @@ function ViewAttendance() {
             
             // IST is UTC +5:30
             const istOffset = 5.5 * 60 * 60 * 1000; // 5.5 hours in milliseconds
-            const istDate = new Date(date.getTime());
+            const istDate = new Date(date.getTime() );
             
             return istDate.toLocaleString('en-IN', {
                 year: 'numeric',
@@ -154,7 +154,26 @@ function ViewAttendance() {
 
     const fetchAttendanceData = async () => {
         try {
-            const response = await axios.get(`http://172.17.48.231:8080/api/course/getAttendance/${courseId}`);
+            // Add debugging logs
+            console.log('localStorage contents:', localStorage);
+            console.log('Raw userId from localStorage:', localStorage.getItem('userId'));
+            
+            // Get userId from localStorage, add fallback
+            const userId = localStorage.getItem('userId');
+            if (!userId) {
+                setError('User ID not found. Please login again.');
+                console.error('userId is null in localStorage');
+                return;
+            }
+
+            const requestData = {
+                studentId: userId,
+                courseId: courseId
+            };
+            
+            console.log('Sending request with data:', requestData);
+            
+            const response = await axios.post(`http://172.17.48.231:8080/api/student/getAttendance`, requestData);
             console.log('API Response:', response.data);
             setAttendanceData(response.data);
             setError(null);

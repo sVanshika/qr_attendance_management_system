@@ -3,9 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation } from 'react-router-dom';
 import { Dropdown, Container, Row, Col, Card } from 'react-bootstrap';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function StudentDashboard() {
     const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location.state);
+    
     const { username, id, message } = location.state || {};
     const [courses, setCourses] = useState([]);
 
@@ -26,9 +30,13 @@ function StudentDashboard() {
     };
 
     const handleViewAttendance = (courseId) => {
-        // TODO: Implement view attendance functionality
-        console.log('View attendance for course:', courseId);
-    };
+      navigate('/student/viewattendance', {
+          state: {
+              courseId: courseId,
+              courseName: courses.find(course => course.id === courseId)?.name
+          }
+      });
+  };
 
     return (
         <Container>

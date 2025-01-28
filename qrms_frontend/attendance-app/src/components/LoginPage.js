@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function LoginPage() {
   const location = useLocation();
@@ -47,10 +48,19 @@ function LoginPage() {
       const result = await response.json();
 
       if (response.ok) {
+        // Add session management
+        sessionStorage.setItem('userToken', result.id);
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('userRole', role);
+        sessionStorage.setItem('username', result.username);
+        sessionStorage.setItem('userId', result.id);
+        
         // Handle successful login (e.g., redirect to dashboard or home)
         console.log(result);
         console.log(result.message);
         navigate(`/${role}dashboard`, {state: { username: result.username, id: result.id}}); // Navigate to another page (you can change this)
+        localStorage.setItem('userId', result.id);
+        localStorage.setItem('username', result.username); // Save user ID to localStorage
       } else {
         // Handle failed login
         setError(result.message || 'Login failed');

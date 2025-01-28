@@ -1,0 +1,59 @@
+Date : 2024-12-03 18:59:35
+Directory : /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams
+Total : 27 files,  1080 codes, 36 comments, 322 blanks, all 1438 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         26 |      1,080 |         36 |        321 |      1,437 |
+| HTML     |          1 |          0 |          0 |          1 |          1 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                        | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                           |         27 |      1,080 |         36 |        322 |      1,438 |
+| . (Files)                                                                                                                                   |          1 |         12 |          0 |          7 |         19 |
+| config                                                                                                                                      |          1 |         13 |         10 |          3 |         26 |
+| controllers                                                                                                                                 |          5 |        299 |         11 |         74 |        384 |
+| model                                                                                                                                       |          9 |        409 |         11 |        140 |        560 |
+| repositories                                                                                                                                |          4 |         36 |          1 |         15 |         52 |
+| service                                                                                                                                     |          6 |        311 |          3 |         82 |        396 |
+| views                                                                                                                                       |          1 |          0 |          0 |          1 |          1 |
++---------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                                    | language | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/QrAmsApplication.java                  | Java     |         12 |          0 |          7 |         19 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/config/WebConfig.java                  | Java     |         13 |         10 |          3 |         26 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/controllers/CourseController.java      | Java     |         89 |          8 |         26 |        123 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/controllers/MainAppController.java     | Java     |         15 |          0 |          4 |         19 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/controllers/ProfessorController.java   | Java     |         35 |          0 |          8 |         43 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/controllers/StudentController.java     | Java     |         86 |          0 |         20 |        106 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/controllers/UserController.java        | Java     |         74 |          3 |         16 |         93 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/Admin.java                       | Java     |         18 |          0 |          9 |         27 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/Attendance.java                  | Java     |         46 |          0 |         13 |         59 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/AttendanceResponseDTO.java       | Java     |         43 |          3 |         15 |         61 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/Course.java                      | Java     |         75 |          0 |         27 |        102 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/CourseDTO.java                   | Java     |         50 |          0 |         13 |         63 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/CourseStudentKey.java            | Java     |         53 |          0 |         17 |         70 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/LoginRequestDto.java             | Java     |         24 |          1 |          8 |         33 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/Professor.java                   | Java     |         26 |          0 |         11 |         37 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/model/Student.java                     | Java     |         74 |          7 |         27 |        108 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/repositories/AttendanceRepository.java | Java     |         17 |          0 |          6 |         23 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/repositories/CourseRepository.java     | Java     |          5 |          0 |          3 |          8 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/repositories/ProfessorRepository.java  | Java     |          7 |          1 |          3 |         11 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/repositories/StudentRepository.java    | Java     |          7 |          0 |          3 |         10 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/service/AttendanceService.java         | Java     |         86 |          0 |         24 |        110 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/service/CourseService.java             | Java     |         14 |          0 |          5 |         19 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/service/CourseServiceImpl.java         | Java     |         47 |          0 |         11 |         58 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/service/ProfessorService.java          | Java     |         83 |          2 |         16 |        101 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/service/StudentService.java            | Java     |         20 |          0 |          5 |         25 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/service/StudentServiceImpl.java        | Java     |         61 |          1 |         21 |         83 |
+| /Users/vanshikasharma/Desktop/BITS/OOAD/qr_attendance_management_system/qrms/src/main/java/com/qrams/views/homePage.jsp                     | HTML     |          0 |          0 |          1 |          1 |
+| Total                                                                                                                                       |          |      1,080 |         36 |        322 |      1,438 |
++---------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

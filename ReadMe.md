@@ -11,3 +11,8 @@ To start backend server:
 
 1. `cd qrms`
 2. `./mvnw spring-boot:run`
+
+[Student] How to mark attendance:
+1. Scan the QR code displayed by the professor through any QR scanner app
+2. Enter your bits email prefix - h20240195
+3. Mark the attendance

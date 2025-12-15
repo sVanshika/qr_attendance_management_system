@@ -7,8 +7,8 @@ import 'datatables.net-bs5';
 import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
 import 'datatables.net-responsive-bs5';
 import 'datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css';
-import './ViewAttendance.css';  // Add this line to import the CSS
-import * as XLSX from 'xlsx';  // Add this import
+import './ViewAttendance.css';  
+import * as XLSX from 'xlsx';  
 
 
 function ViewAttendance() {
@@ -19,6 +19,7 @@ function ViewAttendance() {
     const [error, setError] = useState(null);
     const tableRef = useRef(null);
     const dataTableRef = useRef(null);
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     const convertUTCToIST = (utcDateStr) => {
         try {
@@ -154,7 +155,7 @@ function ViewAttendance() {
 
     const fetchAttendanceData = async () => {
         try {
-            const response = await axios.get(`http://172.17.48.231:8080/api/course/getAttendance/${courseId}`);
+            const response = await axios.get(`${BASE_URL}/api/course/getAttendance/${courseId}`);
             console.log('API Response:', response.data);
             setAttendanceData(response.data);
             setError(null);

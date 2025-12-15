@@ -10,6 +10,7 @@ const QRCodeGenerator = () => {
   const [showQRCode, setShowQRCode] = useState(false);
   const [qrValue, setQRValue] = useState('');
   const navigate = useNavigate(); // Initialize navigate
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   // Function to generate QR Code
   const generateQRCode = () => {
@@ -40,7 +41,7 @@ const QRCodeGenerator = () => {
     const courseId = 101; // Example course ID, you can modify this as needed
 
     $.ajax({
-      url: `http://172.17.48.231:8080/api/course/getAttendance/${courseId}`,
+      url: `${BASE_URL}/api/course/getAttendance/${courseId}`,
       type: 'GET',
       success: function(data) {
         // Clear existing data in the table

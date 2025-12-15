@@ -32,7 +32,8 @@ function MarkAttendanceForm() {
                 const { email: submittedEmail, timestamp } = JSON.parse(submittedAttendance);
                 if (new Date(timestamp) >= new Date(decodedData.activeFrom) && 
                     new Date(timestamp) <= new Date(decodedData.activeTill)) {
-                    setEmail(submittedEmail);
+                        const emailWithDomain = submittedEmail.includes('@') ? submittedEmail : `${submittedEmail}@pilani.bits-pilani.ac.in`;
+                    setEmail(emailWithDomain);
                     setHasSubmitted(true);
                     setMessage({
                         text: 'Attendance already marked successfully!',
@@ -90,10 +91,11 @@ function MarkAttendanceForm() {
         setLoading(true);
 
         try {
-            const baseUrl = 'http://172.17.48.231:8080';
+            const baseUrl = 'http://172.17.49.85:8080';
+            const normalizedEmail = email.includes('@') ? email : `${email}@pilani.bits-pilani.ac.in`;
             const response = await axios.post(
                 `${baseUrl}/api/course/markAttendance/${stateData.courseId}`,
-                [email],
+                [normalizedEmail],
                 {
                     headers: {
                         'Content-Type': 'application/json'
@@ -103,7 +105,7 @@ function MarkAttendanceForm() {
 
             if(response.data === "True"){
                 localStorage.setItem(`attendance_${stateData.courseId}`, JSON.stringify({
-                    email,
+                    email: normalizedEmail,
                     timestamp: new Date().toISOString()
                 }));
 
@@ -144,7 +146,7 @@ function MarkAttendanceForm() {
 
                             <Form noValidate>
                                 <Form.Group className="mb-3">
-                                    <Form.Label>Student Email</Form.Label>
+                                    <Form.Label>Student Email Prefix</Form.Label>
                                     <Form.Control
                                         type="email"
                                         placeholder="Enter your email"

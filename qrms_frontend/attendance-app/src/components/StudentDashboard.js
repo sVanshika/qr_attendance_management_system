@@ -9,6 +9,7 @@ function StudentDashboard() {
     const location = useLocation();
     const navigate = useNavigate();
     console.log(location.state);
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
     
     const { username, id, message } = location.state || {};
     const [courses, setCourses] = useState([]);
@@ -19,7 +20,7 @@ function StudentDashboard() {
 
     const fetchCourses = async () => {
         try {
-            const response = await axios.post('http://172.17.48.231:8080/api/student/getCourses', {
+            const response = await axios.post(`${BASE_URL}/api/student/getCourses`, {
                 studentId: id
             });
             console.log(response.data);

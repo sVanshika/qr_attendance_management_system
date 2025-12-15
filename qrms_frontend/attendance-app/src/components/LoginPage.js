@@ -7,6 +7,7 @@ function LoginPage() {
   const queryParams = new URLSearchParams(location.search);
   const role = queryParams.get('role');
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   // State hooks for form data
   const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ function LoginPage() {
     };
    
     try {
-      const response = await fetch('http://172.17.48.231:8080/api/user/login', {
+      const response = await fetch(`${BASE_URL}/api/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

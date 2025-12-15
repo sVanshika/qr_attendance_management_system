@@ -19,6 +19,7 @@ function ViewAttendance() {
     const [error, setError] = useState(null);
     const tableRef = useRef(null);
     const dataTableRef = useRef(null);
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     const convertUTCToIST = (utcDateStr) => {
         try {
@@ -173,7 +174,7 @@ function ViewAttendance() {
             
             console.log('Sending request with data:', requestData);
             
-            const response = await axios.post(`http://172.17.48.231:8080/api/student/getAttendance`, requestData);
+            const response = await axios.post(`${BASE_URL}/api/student/getAttendance`, requestData);
             console.log('API Response:', response.data);
             setAttendanceData(response.data);
             setError(null);

@@ -8,7 +8,7 @@ function ProfessorDashboard() {
     const navigate = useNavigate();
     const location = useLocation();
     const { username, id, message } = location.state || {};
-
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
     const [courses, setCourses] = React.useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedCourseId, setSelectedCourseId] = useState(null);
@@ -16,7 +16,7 @@ function ProfessorDashboard() {
     const [activeTill, setActiveTill] = useState('');
 
     React.useEffect(() => {
-        fetch('http://172.17.48.231:8080/api/professor/getCourses', {
+        fetch(`${BASE_URL}/api/professor/getCourses`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

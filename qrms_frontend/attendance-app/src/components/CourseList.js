@@ -4,10 +4,11 @@ import './CourseList.css'; // Import CSS file for styling
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   // Fetch the course data when the component loads
   useEffect(() => {
-    axios.get('http://172.17.48.231:8080/api/course/getAll')
+    axios.get(`${BASE_URL}/api/course/getAll`)
       .then((response) => {
         setCourses(response.data); // Update state with the fetched data
       })
